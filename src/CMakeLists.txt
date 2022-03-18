@@ -14,7 +14,7 @@ if (NOT DEFINED CMAKE_MACOSX_RPATH)
 endif()
 
 add_library(cbor ${SOURCES})
-target_include_directories(cbor PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(cbor PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
 
 # Explicitly link math.h if necessary
 check_function_exists(ldexp LDEXP_AVAILABLE)
