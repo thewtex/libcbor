@@ -84,6 +84,7 @@ if(MSVC)
 else()
     set(CBOR_RESTRICT_SPECIFIER "restrict")
 
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wno-return-type")
     set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0 -Wall -g -ggdb -DDEBUG=true")
     set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -O3 -Wall -DNDEBUG")
 
