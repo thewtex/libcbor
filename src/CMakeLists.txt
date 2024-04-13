@@ -11,6 +11,11 @@ endif()
 add_library(cbor ${SOURCES})
 target_include_directories(cbor PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>)
 
+# Likely should be addressed but silence for now
+if (MSVC)
+  target_compile_options(cbor PUBLIC "/wd4715")
+endif()
+
 # Explicitly link math.h if necessary
 check_function_exists(ldexp LDEXP_AVAILABLE)
 if (NOT LDEXP_AVAILABLE)
